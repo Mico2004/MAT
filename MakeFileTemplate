@@ -1,0 +1,21 @@
+run_all_in_parallel:
+	make clean_it test_parallel
+
+clean_it:
+	mvn clean
+
+test_parallel:
+	make -j test_windows_10_chrome test_windows_10_firefox test_mac_10.12_safari test_windows_10_ie
+
+test_windows_10_chrome:
+	mvn test -DbrowserName=chrome -Dversion=latest -Dplatform="Windows 10" -Dsuitename=test_windows_10_chrome -Dcucumber.options="--tags @rft"
+
+test_windows_10_firefox:
+	mvn test -DbrowserName=firefox -Dversion=latest -Dplatform="Windows 10" -Dsuitename=test_windows_10_firefox -Dcucumber.options="--tags @rft"
+
+test_mac_10.12_safari:
+	mvn test -DbrowserName=safari -Dversion=latest -Dplatform="macOS 10.12" -Dsuitename=test_mac_10_12_safari -Dcucumber.options="--tags @rft"
+
+test_windows_10_ie:
+	mvn test -DbrowserName=ie -Dversion=latest -Dplatform="Windows 10" -Dsuitename=test_windows_10_ie -Dcucumber.options="--tags @rft"
+
