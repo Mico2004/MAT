@@ -89,10 +89,10 @@ public abstract class OfferPage extends Page {
             wait.until(ExpectedConditions.presenceOfElementLocated(getGridResourceBundleElementBy(gridElementLocatorTemplate_clickOn,currentRowCount ,"ResourceID")));
 
             if( title != "default" )
-                ActionUtility.sendKeysToElement(driver,wait,title,getGridResourceBundleElementBy(gridElementLocatorTemplate_clickOn, currentRowCount,"title"),getGridResourceBundleElementBy(gridElementLocatorTemplate_sendKeysTo, currentRowCount,"title"),true);
+                ActionUtility.sendKeysToElement(driver,wait,title,getGridResourceBundleElementBy(gridElementLocatorTemplate_clickOn, currentRowCount,"title"),getGridResourceBundleElementBy(gridElementLocatorTemplate_sendKeysTo, currentRowCount,"title"),false);
 
             if( id != "default" )
-                ActionUtility.sendKeysToElement(driver,wait,id,getGridResourceBundleElementBy(gridElementLocatorTemplate_clickOn, currentRowCount,"ResourceID"),getGridResourceBundleElementBy(gridElementLocatorTemplate_sendKeysTo, currentRowCount,"ResourceID"),true);
+                ActionUtility.sendKeysToElement(driver,wait,id,getGridResourceBundleElementBy(gridElementLocatorTemplate_clickOn, currentRowCount,"ResourceID"),getGridResourceBundleElementBy(gridElementLocatorTemplate_sendKeysTo, currentRowCount,"ResourceID"),false);
 
             if(ResourceType != null){
                 // DO Something
