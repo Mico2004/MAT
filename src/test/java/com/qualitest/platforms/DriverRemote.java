@@ -7,6 +7,7 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
@@ -18,9 +19,9 @@ public class DriverRemote {
 
     static Logger logger = Logger.getLogger(DriverRemote.class);
 
-    public static final String USERNAME = "DPGSL12";
+    public static final String USERNAME = "";
 
-    public static final String ACCESS_KEY = "00f186ee-2a87-473a-b55a-bc0cca94e68b";
+    public static final String ACCESS_KEY = "";
 
     public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
 
@@ -34,8 +35,8 @@ public class DriverRemote {
 
 
 
-        System.setProperty("browserName","safari");
-        System.setProperty("platform","macOS 10.12");
+       System.setProperty("browserName","firefox");
+        System.setProperty("platform","Windows 10");
         System.setProperty("version","latest");
 
 
@@ -91,6 +92,8 @@ public class DriverRemote {
 
 
         driver = new RemoteWebDriver(new URL(URL),caps);
+
+        driver.setFileDetector(new LocalFileDetector());
 
         return  driver;
 
